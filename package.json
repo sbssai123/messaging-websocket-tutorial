@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": "14.12.x"
+  },
   "scripts": {
+    "client": "cd client && npm start",
     "server": "nodemon --exec babel-node ./server/index.js",
+    "dev": "concurrently 'npm run client' 'npm run server'",
+    "start": "--exec babel-node ./server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -25,6 +31,7 @@
     "nodemon": "^2.0.4"
   },
   "dependencies": {
+    "concurrently": "^5.3.0",
     "express": "^4.17.1",
     "ws": "^7.3.1"
   }
