@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './ChatApp.css';
 
-const URL = 'wss://ivyhacks-chat.herokuapp.com/'
+const URL = 'ws://localhost:8080'
 
 // Message types
 const NEW_USER_JOINED = "NEW_USER_JOINED"
@@ -28,9 +28,15 @@ class ChatApp extends Component {
     // add it to the state
     this.ws.onmessage = (event) => {
       console.log(event)
-      const incomingMessage = JSON.parse(event.data)
-      const allMessages = [...this.state.messages, incomingMessage]
-      this.setState({messages: allMessages})
+      const rawMessage = event.data
+      if (rawMessage === "ping") {
+        this.ws.send("pong")
+      }
+      else {
+        const incomingMessage = JSON.parse(rawMessage)
+        const allMessages = [...this.state.messages, incomingMessage]
+        this.setState({messages: allMessages})
+      }
     }
 
     this.ws.onclose = () => {
