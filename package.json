@@ -8,9 +8,9 @@
   },
   "scripts": {
     "client": "cd client && npm start",
-    "server": "nodemon --exec babel-node ./server/index.js",
+    "server": "nodemon ./server/index.js",
     "dev": "concurrently 'npm run client' 'npm run server'",
-    "start": "--exec babel-node ./server/index.js",
+    "start": "node ./server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -24,14 +24,10 @@
   },
   "homepage": "https://github.com/sbssai123/messaging-websocket-tutorial#readme",
   "devDependencies": {
-    "@babel/core": "^7.10.2",
-    "@babel/node": "^7.10.1",
-    "@babel/preset-env": "^7.10.2",
-    "babel-loader": "^8.1.0",
-    "nodemon": "^2.0.4"
+    "nodemon": "^2.0.4",
+    "concurrently": "^5.3.0"
   },
   "dependencies": {
-    "concurrently": "^5.3.0",
     "express": "^4.17.1",
     "ws": "^7.3.1"
   }

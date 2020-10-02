@@ -1,5 +1,5 @@
-import Websocket from 'ws';
-import express from 'express';
+const Websocket = require('ws');
+const express = require('express');
 
 const PORT_NUMBER = 8080
 
