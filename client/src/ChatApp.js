@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './ChatApp.css';
 
-const URL = 'ws://ivyhacks-chat.herokuapp.com/'
+const URL = 'wss://ivyhacks-chat.herokuapp.com/'
 
 // Message types
 const NEW_USER_JOINED = "NEW_USER_JOINED"
