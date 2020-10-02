@@ -1,10 +1,14 @@
 const Websocket = require('ws');
 const express = require('express');
+var path = require('path');
 
 const PORT_NUMBER = 8080
 
 const server = express()
-.use(express.static(__dirname + '/../build'))
+.use(express.static(path.join(__dirname, 'build')))
+.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+})
 .listen(PORT_NUMBER, () => console.log(`Listening on ${PORT_NUMBER}`));
 
 const wss = new Websocket.Server({server});
