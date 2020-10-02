@@ -40,6 +40,6 @@ wss.on('connection', (wsClient) => {
         });
     });
     wsClient.on('close', () => {
-        clearInterval(interval);
+        clearInterval(heartbeatIntervals);
     });
 });
