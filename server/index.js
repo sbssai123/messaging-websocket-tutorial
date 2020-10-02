@@ -2,7 +2,7 @@ const Websocket = require('ws');
 const express = require('express');
 var path = require('path');
 
-const PORT_NUMBER = 8080
+const PORT_NUMBER = process.env.PORT || 8080
 
 const server = express()
 .use(express.static(path.join(__dirname, 'build')))
