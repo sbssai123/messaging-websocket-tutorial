@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import './ChatApp.css';
 
-const URL = 'wss://ivyhacks-chat.herokuapp.com/'
+
+// When running locally, this should be ws://localhost:8080
+const URL = 'ws://localhost:8080'
 
 // Message types
 const NEW_USER_JOINED = "NEW_USER_JOINED"
